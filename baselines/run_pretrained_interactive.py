@@ -7,6 +7,9 @@ from stable_baselines3.common import env_checker
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 from stable_baselines3.common.utils import set_random_seed
 from stable_baselines3.common.callbacks import CheckpointCallback
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
 
 def make_env(rank, env_conf, seed=0):
     """
@@ -29,7 +32,7 @@ if __name__ == '__main__':
     ep_length = 2**23
 
     env_config = {
-                'headless': False, 'save_final_state': True, 'early_stop': False,
+                'headless': True, 'save_final_state': True, 'early_stop': False,
                 'action_freq': 24, 'init_state': '../has_pokedex_nballs.state', 'max_steps': ep_length, 
                 'print_rewards': True, 'save_video': False, 'fast_video': True, 'session_path': sess_path,
                 'gb_path': '../PokemonRed.gb', 'debug': False, 'sim_frame_dist': 2_000_000.0, 'extra_buttons': True
@@ -56,7 +59,10 @@ if __name__ == '__main__':
         if agent_enabled:
             action, _states = model.predict(obs, deterministic=False)
         obs, rewards, terminated, truncated, info = env.step(action)
-        env.render()
+        #env.render()
+        # Capture and display the current frame
+        frame = np.array(env.render(reduce_res=True, add_memory=True, update_mem=True))
+        cv2_imshow(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
         if truncated:
             break
     env.close()
