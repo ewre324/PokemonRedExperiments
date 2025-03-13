@@ -57,11 +57,11 @@ if __name__ == '__main__':
             frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)  # Convert to BGR for OpenCV
             frame = cv2.resize(frame, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
             clear_output(wait=True)  # Clear previous frame to avoid clutter
-            time.sleep(1)
+            #time.sleep(1)
             cv2_imshow(frame)  # Display frame
 
-        #  Add a delay for 1 FPS (1 second / 1 frames)
-        time.sleep(1 / 1)
+        # Add a delay 
+        time.sleep(2 / 1)
 
         if truncated:
             break
