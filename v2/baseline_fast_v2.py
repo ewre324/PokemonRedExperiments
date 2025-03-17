@@ -39,7 +39,7 @@ if __name__ == "__main__":
     ep_length = 2048 * 80
     sess_id = "runs"
     sess_path = Path(sess_id)
-
+    # headless to be False to see the actuall game instances.
     env_config = {
                 'headless': True, 'save_final_state': False, 'early_stop': False,
                 'action_freq': 24, 'init_state': '../init.state', 'max_steps': ep_length, 
