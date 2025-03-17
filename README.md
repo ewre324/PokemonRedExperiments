@@ -1,5 +1,14 @@
 # Train RL agents to play Pokemon Red
 
+### New 05-17-25 Added Support to run the pretrained baseline model in google Colab
+
+
+
+
+Original Readme Follows:
+
+# Train RL agents to play Pokemon Red
+
 ### New 10-19-24! Updated & Simplified V2 Training Script - See V2 below
 ### New 1-29-24! - [Multiplayer Live Training Broadcast](https://github.com/pwhiddy/pokerl-map-viz/)  🎦 🔴 [View Here](https://pwhiddy.github.io/pokerl-map-viz/)
 Stream your training session to a shared global game map using the [Broadcast Wrapper](/baselines/stream_agent_wrapper.py)  
